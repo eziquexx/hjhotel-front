@@ -1,7 +1,7 @@
 // 24.11.12 성준[회원 정보 입력 폼] : 사용자 정보 입력 폼으로 중복 확인 버튼과 필수 입력 안내 포함
 import React, { useState } from 'react';
 import ButtonEx from '../../../common/ButtonEx'; // 사용자 정의 버튼 컴포넌트
-import '../css/RegisterForm.css';
+import '../css/Member.css';
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
