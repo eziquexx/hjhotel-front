@@ -5,6 +5,7 @@ import SpecialContent from "./component/user/special/script/SpecialContent";
 import ReservationContent from "./component/user/reservation/script/ReservationContent";
 import CommunityContent from "./component/user/community/script/CommunityContent";
 import PaymentContent from "./component/user/payment/script/PaymentContent";
+import TermsPage from "./pages/TermsPage";
 import AdminPage from "./pages/AdminPage";
 import FullScreenPage from "./pages/FullScreenPage";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/community" element={<CommunityContent />} />
         <Route path="/payment" element={<PaymentContent />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
     </BrowserRouter>
   );
