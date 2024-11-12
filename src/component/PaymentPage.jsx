@@ -1,8 +1,7 @@
 import Header from "./common/Header";
 
-
+//24.11.12 지은 [완료] : Payment 페이지 테스트
 export default function PaymentPage() {
-
   return (
     <div>
       <Header />
