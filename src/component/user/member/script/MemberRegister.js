@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ButtonEx from '../../../common/ButtonEx'; // 사용자 정의 버튼 컴포넌트
 import '../css/Member.css';
 
-const RegisterForm = () => {
+const MemberRegister = () => {
     const [formData, setFormData] = useState({
         userId: '',
         email: '',
@@ -137,4 +137,4 @@ const RegisterForm = () => {
     );
 };
 
-export default RegisterForm;
+export default MemberRegister;

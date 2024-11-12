@@ -1,8 +1,9 @@
 // 24.11.12 성준[약관 동의 페이지] : 각 약관 동의를 개별적으로 처리하고, 모든 약관 동의 여부에 따라 '다음' 버튼 활성화
 import React, { useState } from 'react';
+import ButtonEx from '../../../common/ButtonEx'; // ButtonEx 컴포넌트를 임포트합니다.
 import '../css/Member.css';
 
-function TermsPage() {
+function MemberTermsPage() {
     // 24.11.12 성준[상태 관리] : 각 약관 동의 상태를 저장하는 state
     const [terms, setTerms] = useState({
         all: false,        // 모든 약관 동의
@@ -37,11 +38,11 @@ function TermsPage() {
     const isAllChecked = terms.service && terms.privacy;
 
     return (
-        <div className="terms-page">
+        <div className="terms_page">
             <h2>약관동의</h2>
             <p>롯데호텔 회원 약관에 동의하셔야 회원가입을 진행할 수 있습니다.</p>
 
-            <div className="terms-checkbox">
+            <div className="terms_checkbox">
                 <label>
                     <input
                         type="checkbox"
@@ -53,7 +54,7 @@ function TermsPage() {
                 </label>
             </div>
 
-            <div className="terms-checkbox">
+            <div className="terms_checkbox">
                 <label>
                     <input
                         type="checkbox"
@@ -65,7 +66,7 @@ function TermsPage() {
                 </label>
             </div>
 
-            <div className="terms-checkbox">
+            <div className="terms_checkbox">
                 <label>
                     <input
                         type="checkbox"
@@ -77,7 +78,7 @@ function TermsPage() {
                 </label>
             </div>
 
-            <div className="terms-checkbox">
+            <div className="terms_checkbox">
                 <label>
                     <input
                         type="checkbox"
@@ -89,14 +90,15 @@ function TermsPage() {
                 </label>
             </div>
 
-            <button
-                onClick={() => alert("약관 동의가 완료되었습니다.")}
+            <ButtonEx
+                id="terms_agree_button"
+                action={() => alert("약관 동의가 완료되었습니다.")}
                 disabled={!isAllChecked} // 필수 약관에 모두 동의해야 버튼 활성화
             >
                 다음
-            </button>
+            </ButtonEx>
         </div>
     );
 }
 
-export default TermsPage;
+export default MemberTermsPage;
