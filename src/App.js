@@ -5,9 +5,11 @@ import SpecialContent from "./component/user/special/script/SpecialContent";
 import ReservationContent from "./component/user/reservation/script/ReservationContent";
 import CommunityContent from "./component/user/community/script/CommunityContent";
 import PaymentContent from "./component/user/payment/script/PaymentContent";
-import TermsPage from "./pages/TermsPage";
 import AdminPage from "./pages/AdminPage";
 import FullScreenPage from "./pages/FullScreenPage";
+//24.11.12 성준 [진행중] : 약관 , 회원가입 페이지
+import TermsPage from "./component/user/member/script/TermsPage";
+import RegisterForm from "./component/user/member/script/RegisterForm";
 
 //24.11.12 지은 [완료] : Router, Routes, Route 적용 테스트
 function App() {
@@ -22,7 +24,8 @@ function App() {
         <Route path="/community" element={<CommunityContent />} />
         <Route path="/payment" element={<PaymentContent />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/terms" element={<TermsPage />} /> {/*24.11.12 성준[진행중] 약관페이지 테스트*/}
+        <Route path="/register" element={<RegisterForm />} /> {/*24.11.12 성준[진행중]  회원가입 페이지 테스트*/}
       </Routes>
     </BrowserRouter>
   );

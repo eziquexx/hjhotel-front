@@ -1,0 +1,70 @@
+.register-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    /*border: 1px solid #ddd;*/
+    border-radius: 5px;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    flex: 0 0 120px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    flex: 0 0 80px;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[type="password"]:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+button#registerSubmit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ffc06d;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button#registerSubmit:hover {
+    background-color: #ffc06d;
+}
