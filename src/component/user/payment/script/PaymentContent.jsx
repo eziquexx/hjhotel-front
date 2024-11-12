@@ -1,10 +1,7 @@
-import Header from "./common/Header";
-
-//24.11.12 지은 [완료] : Payment 페이지 테스트
-export default function PaymentPage() {
+//24.11.12 지은 [완료] : PaymentContent 테스트
+export default function PaymentContent() {
   return (
     <div>
-      <Header />
       <h1>예약 결제</h1>
       <div>
         <h2>선택 객실 목록</h2>
