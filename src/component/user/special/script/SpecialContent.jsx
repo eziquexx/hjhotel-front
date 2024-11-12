@@ -4,7 +4,6 @@ import Header from "../../../common/Header";
 export default function SpecialContent() {
   return (
     <div>
-      <Header />
       <h1>스페셜 페이지</h1>
       <div>조식 서비스, 이벤트 페이지가 하위 컴포넌트식으로 들어갈 예정.</div>
     </div>

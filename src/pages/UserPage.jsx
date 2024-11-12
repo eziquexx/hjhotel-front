@@ -1,19 +1,21 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "../component/common/Header";
 import AboutContent from "../component/user/about/script/AboutContent";
-import CommunityContent from "../component/user/community/script/CommunityContent";
-import PaymentContent from "../component/user/payment/script/PaymentContent";
-import ReservationContent from "../component/user/reservation/script/ReservationContent";
 import RoomContent from "../component/user/room/script/RoomContent";
 import SpecialContent from "../component/user/special/script/SpecialContent";
+import ReservationContent from "../component/user/reservation/script/ReservationContent";
+import CommunityContent from "../component/user/community/script/CommunityContent";
+import PaymentContent from "../component/user/payment/script/PaymentContent";
+import FullScreenPage from "./FullScreenPage";
 
-//24.11.12 지은 [완료] : 사용자 페이지, 메뉴 테스트
-export default function MenuPage() {
+
+//24.11.12 지은 [완료] : 사용자 페이지. UserPage를 만들고 그 안에 FullScreenPage 추가.
+export default function UserPage() {
   return (
     <div>
       <Header />
-      <h1>User Index(메인 홈)</h1>
       <Routes>
+        <Route path="/" element={<FullScreenPage />} />
         <Route path="/about" element={<AboutContent />} />
         <Route path="/room" element={<RoomContent />} />
         <Route path="/special" element={<SpecialContent />} />
