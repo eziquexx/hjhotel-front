@@ -1,15 +1,15 @@
 // 24.11.12 성준[약관 동의 페이지] : 각 약관 동의를 개별적으로 처리하고, 모든 약관 동의 여부에 따라 '다음' 버튼 활성화
 import React, { useState } from 'react';
-import ButtonEx from '../../../common/ButtonEx'; // ButtonEx 컴포넌트를 임포트합니다.
+import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberTermsPage.css';
 
 function MemberTermsPage() {
     // 24.11.12 성준[상태 관리] : 각 약관 동의 상태를 저장하는 state
     const [terms, setTerms] = useState({
         all: false,        // 모든 약관 동의
-        service: false,    // 서비스 이용 약관 동의
-        privacy: false,    // 개인정보 수집 및 이용 동의
-        marketing: false,  // 마케팅 정보 수신 동의 (선택 사항)
+        service: false,
+        privacy: false,
+        marketing: false,
     });
 
     // 24.11.12 성준[이벤트 핸들러] : 체크박스 상태 업데이트
