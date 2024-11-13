@@ -4,7 +4,6 @@ import Header from "../component/common/Header";
 export default function FullScreenPage() {
   return (
     <div>
-      <Header />
       <h1>풀스크린 페이지</h1>
     </div>
   );
