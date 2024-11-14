@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { setDate, setMonth, toDate } from "date-fns";
 import { useState , useEffect } from "react";
+
 import ButtonEx from '../../../common/ButtonEx';
 
 function ReservationCalendar()
@@ -81,7 +83,7 @@ function ReservationCalendar()
         <div className={'container text-container'}>
             <div>
                 <ButtonEx id='prev' className='' action={onClickPrevButtton}>{'<'}</ButtonEx>
-                <h2>{`${selectedYearAndMonth.month}월`}</h2>
+                <h2>{`${selectedYearAndMonth.year}년 ${selectedYearAndMonth.month}월`}</h2>
                 <ButtonEx id='next' className='' action={onClickNextButtton}>{'>'}</ButtonEx>
             </div>
             <div className={'row row-cols-7'}>
