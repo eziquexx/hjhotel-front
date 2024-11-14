@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { setDate, setMonth, toDate } from "date-fns";
 import { useState , useEffect } from "react";
+import ButtonEx from '../../../common/ButtonEx';
 
 function ReservationCalendar()
 {
@@ -21,11 +22,21 @@ function ReservationCalendar()
     }
 
     function onClickPrevButtton(){
+        const prevMonth = selectedYearAndMonth;
 
+        setSelectedYearAndMonth({
+            year : prevMonth.month-1 > 0 ? prevMonth.year : prevMonth.year-1,
+            month : prevMonth.month-1 > 0 ? prevMonth.month-1 : 12
+        });
     }
 
     function onClickNextButtton(){
+        const nextMonth = selectedYearAndMonth;
 
+        setSelectedYearAndMonth({
+            year : nextMonth.month+1 <= 12 ? nextMonth.year : nextMonth.year+1,
+            month : nextMonth.month+1 <= 12 ? nextMonth.month+1 : 1
+        });
     }
 
     //util
@@ -68,6 +79,11 @@ function ReservationCalendar()
 
     return (
         <div className={'container text-container'}>
+            <div>
+                <ButtonEx id='prev' className='' action={onClickPrevButtton}>{'<'}</ButtonEx>
+                <h2>{`${selectedYearAndMonth.month}월`}</h2>
+                <ButtonEx id='next' className='' action={onClickNextButtton}>{'>'}</ButtonEx>
+            </div>
             <div className={'row row-cols-7'}>
                 {dayArr.map((day,index)=>(
                         <div className='col' key={index}>
@@ -75,11 +91,13 @@ function ReservationCalendar()
                         </div>
                     ))
                 }
+                {/*onClick={(timestamp)=>onClickSelectDay(timestamp)}*/}
                 {getTimestampArrForCalendar(selectedYearAndMonth.year,selectedYearAndMonth.month)
                     .map((timestamp,index)=>(
                         <div className="col bg-primary-subtle border border-secondary" key={index}>
                             {timestamp ? (
                                 <>
+                                    {/* 24.11.14 한택 [테스트코드]: 데이터가 맞게 들어갔는지 테스트하기 위한 코드입니다.  */}
                                     <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDay()}</p>
                                     <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDate()}</p>
                                 </>
