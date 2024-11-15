@@ -7,7 +7,7 @@ import ReservationContent from "../component/user/reservation/script/Reservation
 import RoomContent from "../component/user/room/script/RoomContent";
 import SpecialContent from "../component/user/special/script/SpecialContent";
 import FullScreenPage from "./FullScreenPage";
-
+import RoomDetail from "../component/user/room/script/RoomDetail";
 //24.11.12 지은 [완료] : 사용자 페이지, 메뉴 테스트
 export default function UserPage() {
   return (
@@ -21,6 +21,10 @@ export default function UserPage() {
       <Route path="/reservation" element={<ReservationContent />} />
       <Route path="/community" element={<CommunityContent />} />
       <Route path="/payment" element={<PaymentContent />} />
+
+      {/*  */}
+      <Route path="/roomdetail" element={< RoomDetail/>} />
+
     </Routes>
   </div>
   );
