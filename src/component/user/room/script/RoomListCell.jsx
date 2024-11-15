@@ -1,8 +1,8 @@
-import Room_ImgSlider from "./RoomImgSlider";
-import Room_Info from "./RoomInfo";
+import RoomImgSlider from "./RoomImgSlider";
+import RoomInfo from "./RoomInfo";
 import '../css/RoomListCell.css';
 
-export default function Room_ListCell(){
+export default function RoomListCell(){
     return(
   
    <div className="cell_container">
@@ -10,8 +10,8 @@ export default function Room_ListCell(){
    <div className="cell_room">
     <p>객실 이름 , 객실 타입</p>
    </div>
-        <Room_ImgSlider/>
-        <Room_Info />
+        <RoomImgSlider/>
+        <RoomInfo />
     </div>
     )
 };

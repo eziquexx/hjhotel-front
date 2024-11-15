@@ -12,7 +12,7 @@ function RoomDetailButton() {
     );
 }
 
-export default function Room_Info() {
+export default function RoomInfo() {
     return (
         <div className="room_info">
             <p><strong>객실 타입:</strong> 스탠다드</p>

@@ -1,6 +1,6 @@
 import React from "react";
-import Room_ImgSlider from "./RoomImgSlider";
-import Room_Info from "./RoomInfo";
+import RoomImgSlider from "./RoomImgSlider";
+import RoomInfo from "./RoomInfo";
 export default function RoomDetail(){
     return(
  
@@ -12,12 +12,12 @@ export default function RoomDetail(){
 
         {/* <!-- Room Image Section --> */}
         <section class="room-image">
-           <Room_ImgSlider />
+           <RoomImgSlider />
         </section>
 
         {/* <!-- Room Info Section --> */}
         <section class="room-info">
-          <Room_Info /> 
+          <RoomInfo /> 
                </section>
 
         {/* <!-- Special Services Section --> */}
@@ -59,7 +59,7 @@ export default function RoomDetail(){
             <p>더 자세한 예약 정보가 필요하시면 아래 연락처로 문의해 주세요.</p>
             <div class="contact">
                 <p>전화: <a href="tel:+821234567890">+82-123-4567-890</a></p>
-                <p>이메일: <a href="mailto:info@lottehotel.com">info@lottehotel.com</a></p>
+                <p>이메일: <a href="mailto:info@lottehotel.com">info@lottehotel.comㅇㄴㄹㄴ</a></p>
             </div>
         </section>
     </div>
