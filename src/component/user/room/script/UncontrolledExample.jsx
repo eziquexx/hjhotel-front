@@ -12,7 +12,7 @@ function ControlledCarousel() {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-       
+       <div></div>
     
       </Carousel.Item>
     </Carousel>
