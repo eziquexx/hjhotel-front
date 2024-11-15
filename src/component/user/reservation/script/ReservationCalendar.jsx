@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { setDate, setMonth, toDate } from "date-fns";
 import { useState , useEffect } from "react";
 
@@ -9,6 +7,7 @@ function ReservationCalendar()
 {
     const nowDate = toDate(Date.now(), { timeZone: 'Asia/Seoul' });
     const dayArr = ['일','월','화','수','목','금','토'];
+    const bTest = false;
 
     const [selectedYearAndMonth, setSelectedYearAndMonth] =
     useState({
@@ -82,9 +81,9 @@ function ReservationCalendar()
     return (
         <div className={'container text-container'}>
             <div>
-                <ButtonEx id='prev' className='' action={onClickPrevButtton}>{'<'}</ButtonEx>
+                <ButtonEx id='prev' className='btn' action={onClickPrevButtton}>{'<'}</ButtonEx>
                 <h2>{`${selectedYearAndMonth.year}년 ${selectedYearAndMonth.month}월`}</h2>
-                <ButtonEx id='next' className='' action={onClickNextButtton}>{'>'}</ButtonEx>
+                <ButtonEx id='next' className='btn' action={onClickNextButtton}>{'>'}</ButtonEx>
             </div>
             <div className={'row row-cols-7'}>
                 {dayArr.map((day,index)=>(
@@ -100,8 +99,12 @@ function ReservationCalendar()
                             {timestamp ? (
                                 <>
                                     {/* 24.11.14 한택 [테스트코드]: 데이터가 맞게 들어갔는지 테스트하기 위한 코드입니다.  */}
-                                    <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDay()}</p>
-                                    <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDate()}</p>
+                                    {bTest ? (<>
+                                        <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDay()}</p>
+                                        <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDate()}</p>
+                                    </>) :(<>
+                                        <div>각 날짜 컴포넌트</div>
+                                    </>)}
                                 </>
                             ) : null}
                         </div>
