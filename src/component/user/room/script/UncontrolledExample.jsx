@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from 'components/ExampleCarouselImage';
-
+// 맥북 어렵습니다
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
 
