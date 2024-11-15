@@ -6,6 +6,7 @@ export default function FullScreenPage() {
   return (
     <div>
       <h1>풀스크린 페이지</h1>
+   
     </div>
   );
 }
