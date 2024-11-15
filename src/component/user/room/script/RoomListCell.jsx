@@ -1,4 +1,4 @@
-import RoomImgSlider from "./RoomImgSlider";
+import RoomImgSlider from "./RoomImg";
 import RoomInfo from "./RoomInfo";
 import '../css/RoomListCell.css';
 

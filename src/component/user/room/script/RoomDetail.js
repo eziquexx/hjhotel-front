@@ -1,5 +1,5 @@
 import React from "react";
-import RoomImgSlider from "./RoomImgSlider";
+import RoomImgSlider from "./RoomImg";
 import RoomInfo from "./RoomInfo";
 export default function RoomDetail(){
     return(
