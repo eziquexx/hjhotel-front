@@ -32,8 +32,7 @@ export default function UserPage() {
         <Route path="/payment" element={<PaymentContent />} />
 
         {/*24.11.13 성준[진행중] 페이지 테스트*/}
-        <Route path="/list" element={<RoomCard />} />
-        <Route path="/list2" element={<RoomList />} />
+
         <Route path="/terms" element={<MemberTermsPage />} /> {/*24.11.12 성준[진행중] 약관페이지 테스트*/}
         <Route path="/register" element={<MemberRegister />} /> {/*24.11.12 성준[진행중]  회원가입 정보입력 페이지 테스트*/}
         <Route path="/login" element={<MemberLoginPage />}  /> {/*24.11.12 성준[진행중] 로그인페이지 테스트*/}
