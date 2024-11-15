@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Form } from "react-bootstrap";
 
-//24.11.15 지은 [진행중] : 체크박스 테스트 및 작업중
+//24.11.15 지은 [진행중] : 체크박스 기능 구현 성공
 export default function PaymentContent() {
   // 개별 체크박스들의 상태 (초기값: 모두 선택되지 않음)
   const [checkboxes, setCheckboxes] = useState([false, false, false]);
