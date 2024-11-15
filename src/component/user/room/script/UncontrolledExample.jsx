@@ -1,32 +1,25 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from 'components/ExampleCarouselImage';
 // 맥북 어렵습니다
-function ControlledCarousel() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
-
+function UncontrolledExample() {
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel>
       <Carousel.Item>
-        <ExampleCarouselImage  text="First slide" />
+        <div style={{ height: '400px', width: '100%', backgroundColor: 'lightgray' }}>안녕 난 첫쨰야</div>
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <ExampleCarouselImage text="Second slide" />
+        <div style={{ height: '400px', width: '100%', backgroundColor: 'lightgray' }}>안녕 난 둘째야</div>
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <ExampleCarouselImage text="Third slide" />
+        <div style={{ height: '400px', width: '100%', backgroundColor: 'lightgray' }}>안녕 난 막내야</div>
         <Carousel.Caption>
           <h3>Third slide label</h3>
           <p>
@@ -38,4 +31,4 @@ function ControlledCarousel() {
   );
 }
 
-export default ControlledCarousel;
+export default UncontrolledExample;
