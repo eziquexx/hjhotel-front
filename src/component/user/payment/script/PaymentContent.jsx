@@ -1,73 +1,36 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 
 //24.11.15 지은 [진행중] : 체크박스 테스트 및 작업중
 export default function PaymentContent() {
+  // 개별 체크박스들의 상태 (초기값: 모두 선택되지 않음)
+  const [checkboxes, setCheckboxes] = useState([false, false, false]);
 
-  // 체크박스의 선택 상태를 관리할 state
-  const [checkbox, setCheckBoxes] = useState({
-    checkbox1 : false,
-    checkbox2 : false,
-    checkbox3 : false,
-    checkbox4 : false,
-    checkbox5 : false,
-  });
+  // 전체선택 체크박스 상태 (초기값: 선택되지 않음)
+  const [isChecked, setIsChecked] = useState(false);
 
-  // 전체 선택/해제 상태를 관리하는 state
-  const [selectAll, setSelectAll] = useState(false);
+  // 전체선택 체크박스를 클릭했을 때 모든 체크박스 상태 업데이트
+  const handleCheckAll = () => {
+    const newCheckedStatus = !isChecked;
+    setIsChecked(newCheckedStatus);
+    setCheckboxes(checkboxes.map(() => newCheckedStatus)); // 전체 체크박스 상태 일괄 업데이트
+  };
 
-  const handleSelectAllChange = (e) => {
-    const isChecked = e.target.checked;
-    setSelectAll(isChecked);
+  // 개별 체크박스를 클릭했을 때 상태 업데이트
+  const handleCheckboxChange = (index) => {
+    const newCheckboxes = [...checkboxes];
+    newCheckboxes[index] = !newCheckboxes[index]; // 해당 체크박스 상태만 변경
 
-    setCheckBoxes({
-      checkbox1: isChecked,
-      checkbox2: isChecked,
-      checkbox3: isChecked,
-      checkbox4: isChecked,
-      checkbox5: isChecked,
-    })
-  }
+    setCheckboxes(newCheckboxes);
 
-  useEffect(() => {
-    // 만약에 ischecked가 아니면, 전체 선택 x
-    
-  })
+    // 전체선택 체크박스 상태 업데이트: 모든 체크박스가 선택되면 전체선택 체크박스도 선택됨
+    setIsChecked(newCheckboxes.every((checkbox) => checkbox));
+  };
 
-  // useEffect(() => {
-  //   if (selectAll == true) {
-  //     // all checked
-  //     setCheckBoxes({
-  //       checkbox1: true,
-  //       checkbox2: true,
-  //       checkbox3: true,
-  //       checkbox4: true,
-  //       checkbox5: true,
-  //     });
-      
-
-  //   } else {
-  //     setCheckBoxes({
-  //       checkbox1: false,
-  //       checkbox2: false,
-  //       checkbox3: false,
-  //       checkbox4: false,
-  //       checkbox5: false,
-  //     });
-  //   }
-  // })
-
-  const handleCheckboxChange = (e) => {
-    const isChecked = e.target.checked;
-    setCheckBoxes(isChecked);
-  }
-
-  
-
-
-
+  // todo: 전체 선택인 상태에서 list 1개라도 해제되면 전체선택에 checkbox가 해제.
+  // problem: 전체 선택, 전체 해제는 성공. 각 list 1개라도 해제하면 전체 해제가 됨.
+  // thinking: 각 list 1개 선택을 가능하되 전체 선택되어도 해제되지 않고 해당 list만 해제되게.
 
   return (
     <div className="payment_container">
@@ -106,56 +69,24 @@ export default function PaymentContent() {
         <h2>약관동의</h2>
         <div>
           <Form>
-            {['checkbox'].map((type) => (
-              <div key={type}>
-                <Form.Check 
-                  type={type}
-                  label="전체 선택"
-                  id="allCheckbox"
-                  checked={selectAll}
-                  onChange={handleSelectAllChange}
-                />
-                <div>
-                  <Form.Check 
-                    type={type}
-                    label="(필수) 이용시 유의사항에 동의"
-                    id="checkbox1"
-                    checked={checkbox.checkbox1}
-                    onChange={handleCheckboxChange}
-                  />
-                  <Form.Check 
-                    type={type}
-                    label="(필수) 취소수수료(예약시점과 무관한 이용일 기준)에 동의"
-                    id="checkbox2"
-                    checked={checkbox.checkbox2}
-                    onChange={handleCheckboxChange}
-                  />
-                  <Form.Check 
-                    type={type}
-                    label="(필수) 개인정보 수집 및 이용에 동의"
-                    id="checkbox3"
-                    checked={checkbox.checkbox3}
-                    // onChange={handleCheckboxChange}
-                  />
-                  <Form.Check 
-                    type={type}
-                    label="(필수) 개인정보 제 3자제공의 동의"
-                    id="checkbox4"
-                    checked={checkbox.checkbox4}
-                    // onChange={handleCheckboxChange}
-                  />
-                  <Form.Check 
-                    type={type}
-                    label="(필수) 이용자가 미성년자가 아니며 성인임에 동에"
-                    id="checkbox5"
-                    checked={checkbox.checkbox5}
-                    // onChange={handleCheckboxChange}
-                  />
-                </div>
+            {/* 전체선택 체크박스 */}
+            <Form.Check
+              type="checkbox"
+              label="전체선택"
+              checked={isChecked}
+              onChange={handleCheckAll}
+            />
 
-              </div>
+            {/* 개별 체크박스들 */}
+            {checkboxes.map((checked, index) => (
+              <Form.Check
+                key={index}
+                type="checkbox"
+                label={`항목 ${index + 1}`}
+                checked={checked}
+                onChange={() => handleCheckboxChange(index)}
+              />
             ))}
-            
           </Form>
         </div>
       </div>
