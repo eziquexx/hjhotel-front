@@ -1,19 +1,18 @@
-// 24.11.12 성준[회원 정보 입력 폼] : 사용자 정보 입력 폼으로 중복 확인 버튼과 필수 입력 안내 포함
 import React, { useState } from 'react';
 import ButtonEx from '../../../common/ButtonEx'; // 사용자 정의 버튼 컴포넌트
 import '../css/MemberRegister.css';
 
 const MemberRegister = () => {
     const [formData, setFormData] = useState({
-        userId: '',
         email: '',
         password: '',
         confirmPassword: '',
-        fullName: '',
-        birthDate: '',
-        contactNumber: '',
-        termsAccepted: false,
+        name: '',
+        phone: '',
     });
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,30 +22,51 @@ const MemberRegister = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // 여기에서 폼 검증 및 제출 처리
-        console.log("회원 가입 데이터:", formData);
+
+        if (formData.password !== formData.confirmPassword) {
+            setErrorMessage('비밀번호가 일치하지 않습니다.');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:8080/api/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                    name: formData.name,
+                    phone: formData.phone,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setSuccessMessage(result.message);
+                setErrorMessage('');
+            } else {
+                setErrorMessage(result.message);
+                setSuccessMessage('');
+            }
+        } catch (error) {
+            setErrorMessage('회원가입 요청 중 오류가 발생했습니다.');
+            setSuccessMessage('');
+        }
     };
+
 
     return (
         <form onSubmit={handleSubmit} className="register-form">
-            <h2>회원 정보 입력</h2>
+            <h2>회원가입</h2>
 
-            {/* 아이디 입력 */}
-            <div className="form-group">
-                <label htmlFor="userId">아이디*</label>
-                <input
-                    type="text"
-                    id="userId"
-                    name="userId"
-                    placeholder="사용할 아이디를 입력하세요"
-                    value={formData.userId}
-                    onChange={handleChange}
-                    required
-                />
-                <ButtonEx action={() => alert('중복 확인')} id="userIdCheck">중복확인</ButtonEx>
-            </div>
+            {/* 에러 메시지 */}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
 
             {/* 이메일 입력 */}
             <div className="form-group">
@@ -60,7 +80,6 @@ const MemberRegister = () => {
                     onChange={handleChange}
                     required
                 />
-                <ButtonEx action={() => alert('중복 확인')} id="emailCheck">중복확인</ButtonEx>
             </div>
 
             {/* 비밀번호 입력 */}
@@ -79,7 +98,7 @@ const MemberRegister = () => {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    placeholder="한번 더 같은 비밀번호를 입력하세요"
+                    placeholder="비밀번호를 다시 입력하세요"
                     value={formData.confirmPassword}
                     onChange={handleChange}
                     required
@@ -88,27 +107,13 @@ const MemberRegister = () => {
 
             {/* 이름 입력 */}
             <div className="form-group">
-                <label htmlFor="fullName">이름:</label>
+                <label htmlFor="name">이름*</label>
                 <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
+                    id="name"
+                    name="name"
                     placeholder="이름을 입력하세요"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    required
-                />
-
-            </div>
-
-            {/* 생년월일 입력 */}
-            <div className="form-group">
-                <label htmlFor="birthDate">생년월일*</label>
-                <input
-                    type="date"
-                    id="birthDate"
-                    name="birthDate"
-                    value={formData.birthDate}
+                    value={formData.name}
                     onChange={handleChange}
                     required
                 />
@@ -116,23 +121,21 @@ const MemberRegister = () => {
 
             {/* 연락처 입력 */}
             <div className="form-group">
-                <label htmlFor="contactNumber">연락처*</label>
-                <select name="countryCode" onChange={handleChange} required>
-                    <option value="82">대한민국(+82)</option>
-                    {/* 추가 국가 코드 옵션 */}
-                </select>
+                <label htmlFor="phone">연락처*</label>
                 <input
                     type="tel"
-                    id="contactNumber"
-                    name="contactNumber"
-                    placeholder="전화번호를 입력하세요"
-                    value={formData.contactNumber}
+                    id="phone"
+                    name="phone"
+                    placeholder="연락처를 입력하세요"
+                    value={formData.phone}
                     onChange={handleChange}
                     required
                 />
             </div>
 
-            <ButtonEx type="submit" id="registerSubmit">가입 완료</ButtonEx>
+            <ButtonEx id="registerSubmit" type="submit">
+                가입 완료
+            </ButtonEx>
         </form>
     );
 };
