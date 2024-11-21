@@ -30,6 +30,7 @@ h2 {
 .form-group input[type="tel"],
 .form-group select {
     flex: 1;
+
     padding: 10px;
     font-size: 14px;
     border: 1px solid #cccccc;
@@ -56,8 +57,8 @@ h2 {
 
 .form-group input[type="tel"]{
 
-
-    margin-left: 10px;
+    width: 100%;
+    margin-left: px;
 }
 
 

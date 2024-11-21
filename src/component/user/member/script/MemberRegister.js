@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ButtonEx from '../../../common/ButtonEx'; // 사용자 정의 버튼 컴포넌트
 import '../css/MemberRegister.css';
 
@@ -14,6 +15,8 @@ const MemberRegister = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
+    const navigate = useNavigate(); // 페이지 이동을 위한 hook
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -25,6 +28,7 @@ const MemberRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // 비밀번호 확인 검증
         if (formData.password !== formData.confirmPassword) {
             setErrorMessage('비밀번호가 일치하지 않습니다.');
             return;
@@ -44,21 +48,20 @@ const MemberRegister = () => {
                 }),
             });
 
-            const result = await response.json();
-
-            if (response.ok) {
-                setSuccessMessage(result.message);
-                setErrorMessage('');
-            } else {
-                setErrorMessage(result.message);
-                setSuccessMessage('');
+            if (!response.ok) {
+                throw new Error('회원가입에 실패했습니다.');
             }
+
+            const result = await response.json(); // JSON 응답 처리
+            setSuccessMessage(result.message); // 서버에서 반환한 메시지 표시
+            setErrorMessage('');
+
+            // 서버에서 제공한 리다이렉트 URL로 이동
+            navigate(result.redirectUrl);
         } catch (error) {
-            setErrorMessage('회원가입 요청 중 오류가 발생했습니다.');
-            setSuccessMessage('');
+            setErrorMessage(error.message); // 에러 메시지 표시
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit} className="register-form">

@@ -22,10 +22,10 @@ function SignUpComplete() {
                 </div>
             </div>
 
-            <p className="special-offer">리워즈 회원만의 특별한 혜택을 누려보세요</p>
+            <p className="special-offer">잘바즈 회원만의 특별한 혜택을 누려보세요</p>
             <div className="buttons">
                 <ButtonEx id="home-button" action={() => alert("홈으로 이동")}>홈으로 이동</ButtonEx>
-                <ButtonEx id="promo-button" action={() => alert("프로모션 보기")}>프로모션 보기</ButtonEx>
+                {/*<ButtonEx id="promo-button" action={() => alert("프로모션 보기")}>프로모션 보기</ButtonEx>*/}
             </div>
         </div>
     );

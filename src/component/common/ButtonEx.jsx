@@ -19,28 +19,46 @@ import { useNavigate } from "react-router-dom";
     </ButtonEx>
 
 */
-function ButtonEx({id, className, children, action=null, url = "/",type = "button"}){
+// function ButtonEx({id, className, children, action=null, url = "/",type = "button"}){
+//
+//     const nav = useNavigate();
+//
+//     function onClickButton() {
+//
+//         if(action != null){
+//             action();
+//         }
+//         else{
+//             nav(url);
+//         }
+//
+//     }
+//
+//     //24.10.30 HT^^ : 안쓰이는 기능 {isImage ? <img src={src} alt="" />  : <p>${content}</p>}
+//     return (
+//         <button id={id} className={className} onClick={onClickButton} type={type}>
+//             {children}
+//         </button>
+//     );
+//
+// }
+//
+// export default ButtonEx;
 
-    const nav = useNavigate();
 
-    function onClickButton() {
 
-        if(action != null){
+function ButtonEx({ id, className, children, action = null, type = "button", url = "/" }) {
+    const handleClick = () => {
+        if (action) {
             action();
         }
-        else{
-            nav(url);
-        }
+    };
 
-    }
-
-    //24.10.30 HT^^ : 안쓰이는 기능 {isImage ? <img src={src} alt="" />  : <p>${content}</p>}
     return (
-        <button id={id} className={className} onClick={onClickButton} type={type}>
+        <button id={id} className={className} onClick={handleClick} type={type}>
             {children}
         </button>
     );
-
 }
 
 export default ButtonEx;

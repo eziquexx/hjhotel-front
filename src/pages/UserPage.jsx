@@ -9,8 +9,7 @@ import PaymentContent from "../component/user/payment/script/PaymentContent";
 import FullScreenPage from "./FullScreenPage";
 import MemberRegister from "../component/user/member/script/MemberRegister";
 import MemberTermsPage from "../component/user/member/script/MemberTermsPage";
-import RoomCard from "../component/user/room/script/RoomCard";
-import RoomList from "../component/user/room/script/RoomList";
+
 import MemberLoginPage from "../component/user/member/script/MemberLoginPage";
 import MemberSignUp from "../component/user/member/script/MemberSignUp";
 import MemberSignUpComplete from "../component/user/member/script/MemberSignUpComplete";
