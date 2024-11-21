@@ -4,7 +4,7 @@ import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberLoginPage.css';
 
 function MemberLoginPage() {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [formData, setFormData] = useState({ userId: '', password: '' }); // userId로 변경
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate(); // 페이지 이동
 
@@ -23,7 +23,7 @@ function MemberLoginPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formData), // userId와 password를 전송
             });
 
             if (response.ok) {
@@ -54,15 +54,15 @@ function MemberLoginPage() {
             <div className="login-form">
                 <input
                     type="text"
-                    name="email"
-                    placeholder="이메일 넣어라!!"
-                    value={formData.email}
+                    name="userId" // userId로 변경
+                    placeholder="아이디를 입력하세요"
+                    value={formData.userId} // userId로 변경
                     onChange={handleChange}
                 />
                 <input
                     type="password"
                     name="password"
-                    placeholder="비밀번호를 입력하던가 말던가"
+                    placeholder="비밀번호를 입력하세요"
                     value={formData.password}
                     onChange={handleChange}
                 />
