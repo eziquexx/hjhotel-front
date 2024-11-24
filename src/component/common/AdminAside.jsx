@@ -17,7 +17,7 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>회원전체목록</span>
             </p>
           </Accordion.Body>
@@ -33,7 +33,7 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>직원전체목록</span>
             </p>
           </Accordion.Body>
@@ -49,7 +49,7 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>객실전체목록</span>
             </p>
           </Accordion.Body>
@@ -65,14 +65,18 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>예약전체목록</span>
             </p>
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="4">
           <Accordion.Header>
-            <ButtonEx id={"payments"} url={"/admin/payments"} className={"adminAsideMenu"}>
+            <ButtonEx id={"paymentsGroup"} 
+              url={"/admin/payments"} 
+              // action={fetch('')}
+              className={"adminAsideMenu"}
+              >
               <p>
                 <span className="material-symbols-outlined icons">paid</span>
                 <span>결제관리</span>
@@ -80,10 +84,18 @@ export default function AdminAside() {
             </ButtonEx>
           </Accordion.Header>
           <Accordion.Body>
-            <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
-              <span>결제전체목록</span>
-            </p>
+            <ButtonEx id={"payments"} url={"/admin/payments"} className={"adminAsideMenu adminAsideSubMenu"}>
+              <p>
+                <span className="material-symbols-outlined icons">check_indeterminate_small</span>
+                <span>결제목록</span>
+              </p>
+            </ButtonEx>
+            <ButtonEx id={"paymentsProcessess"} url={"/admin/payments/process"} className={"adminAsideMenu adminAsideSubMenu"}>
+              <p>
+                <span className="material-symbols-outlined icons">check_indeterminate_small</span>
+                <span>결제프로세스목록</span>
+              </p>
+            </ButtonEx>
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="5">
@@ -97,7 +109,7 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>공지사항 게시판</span>
             </p>
           </Accordion.Body>
@@ -113,7 +125,7 @@ export default function AdminAside() {
           </Accordion.Header>
           <Accordion.Body>
             <p>
-              <span class="material-symbols-outlined icons">check_indeterminate_small</span>
+              <span className="material-symbols-outlined icons">check_indeterminate_small</span>
               <span>통계1</span>
             </p>
           </Accordion.Body>

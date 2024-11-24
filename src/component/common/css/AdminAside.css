@@ -47,6 +47,10 @@
   margin-right: 10px;
 }
 
+#AdminAsideContainer .adminAsideSubMenu {
+  padding: 6px 0;
+}
+
 #AdminAsideContainer .accordion-body {
   padding: 10px 8px;
   color: #ffffff;
@@ -69,6 +73,3 @@
   background-size: cover;
 }
 
-/* .accordion {
-  --bs-accordion-btn-icon: url("/src/assets/images/arrow_drop_down_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg");
-} */
