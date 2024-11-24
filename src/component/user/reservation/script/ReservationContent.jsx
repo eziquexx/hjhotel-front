@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 import { Routes , Route } from "react-router-dom";
 import ReservationCalendar from "./ReservationCalendar";
 import ReservationGuide from "./ReservationGuide";
 
-=======
->>>>>>> f9a09d74101dccbbd06bd9db3fb8670b89e10957
 //24.11.12 지은 [완료] : ReservationContent 테스트.
 export default function ReservationContent() {
   return (
