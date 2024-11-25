@@ -8,11 +8,10 @@ function App() {
     <BrowserRouter basename="/" future={{ v7_startTransition: true }}>
       <Routes>
         <Route path="/*" element={<UserPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-       
+        <Route path="/admin/*" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );
 }
- 
+
 export default App;

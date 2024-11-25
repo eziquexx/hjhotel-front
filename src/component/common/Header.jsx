@@ -7,19 +7,19 @@ export default function Header() {
       <ButtonEx id={"home"} url={"/"}>
         <p>로고(홈)</p>
       </ButtonEx>
-      <ButtonEx id={"about"} url={"/about"}>
+      <ButtonEx id={"about"} url={"about"}>
         <p>About</p>
       </ButtonEx>
-      <ButtonEx id={"room"} url={"/room"}>
+      <ButtonEx id={"room"} url={"room"}>
         <p>Room View</p>
       </ButtonEx>
-      <ButtonEx id={"special"} url={"/special"}>
+      <ButtonEx id={"special"} url={"special"}>
         <p>Special</p>
       </ButtonEx>
-      <ButtonEx id={"reservation"} url={"/reservation"}>
+      <ButtonEx id={"reservation"} url={"reservation"}>
         <p>Reservation</p>
       </ButtonEx>
-      <ButtonEx id={"community"} url={"/community"}>
+      <ButtonEx id={"community"} url={"community"}>
         <p>Community</p>
       </ButtonEx>
     </div>
