@@ -1,4 +1,4 @@
-// src/components/common/MemBootstrap.jsx
+npm // src/components/common/MemBootstrap.jsx
 import React from 'react';
 import { Button } from 'react-bootstrap';
 

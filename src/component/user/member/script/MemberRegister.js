@@ -75,14 +75,20 @@ const MemberRegister = () => {
                 throw new Error('회원가입에 실패했습니다.');
             }
 
-            const result = await response.json(); // JSON 응답 처리
-            setSuccessMessage(result.message); // 서버에서 반환한 메시지 표시
+            const result = await response.json();
+            setSuccessMessage(result.message);
             setErrorMessage('');
-
-            // 서버에서 제공한 리다이렉트 URL로 이동
-            navigate(result.redirectUrl);
+            setFormData({
+                userId: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
+                name: '',
+                phone: '',
+            });
+            navigate(`${result.redirectUrl}?userId=${result.userId}`);
         } catch (error) {
-            setErrorMessage(error.message); // 에러 메시지 표시
+            setErrorMessage(error.message);
         }
     };
 

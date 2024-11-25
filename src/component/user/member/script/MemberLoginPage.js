@@ -66,16 +66,40 @@ function MemberLoginPage() {
                     value={formData.password}
                     onChange={handleChange}
                 />
-                <ButtonEx id="login-button" action={handleLogin}>
+                <button
+                    id="login-button"
+                    onClick={handleLogin}
+                    className="custom-login-button"
+                >
                     로그인
-                </ButtonEx>
+                </button>
             </div>
 
             <div className="login-options">
-                <label>
-                    {/*<input type="checkbox" /> 아이디 또는 리워즈 번호 저장*/}
-                </label>
-                <p>아이디 찾기 / 비밀번호 찾기 / 회원가입</p>
+                <p>
+                    <button
+                        onClick={() => alert('아이디 찾기x')}
+                        className="btn-link"
+                    >
+                        아이디 찾기
+                    </button>
+                    {' '}
+                    /{' '}
+                    <button
+                        onClick={() => alert('비번 찾기x')}
+                        className="btn-link"
+                    >
+                        비밀번호 찾기
+                    </button>
+                    {' '}
+                    /{' '}
+                    <button
+                        onClick={() => navigate('/register')}
+                        className="btn-link"
+                    >
+                        회원가입
+                    </button>
+                </p>
             </div>
 
             {/*<ButtonEx id="sns-login" action={() => alert("카카오톡 로그인")}>*/}
