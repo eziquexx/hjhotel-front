@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberSignUpComplete.css';
 import headImage from '../../../../assets/images/head.png';
 
-function SignUpComplete({ userId = '' }) {
+function MemberSignUpComplete() {
+    const location = useLocation(); // 현재 URL 정보를 가져옴
     const [userInfo, setUserInfo] = useState({ name: '', userId: '' });
+
+    // URL에서 userId를 추출
+    const searchParams = new URLSearchParams(location.search);
+    const userId = searchParams.get('userId'); // ?userId=값에서 값 가져오기
 
     useEffect(() => {
         if (!userId) {
@@ -41,8 +47,8 @@ function SignUpComplete({ userId = '' }) {
             <div className="rewards-card">
                 <img src={headImage} alt="리워즈 카드" />
                 <div className="user-info">
-                    <p>이름: {userInfo.name || '정보 없음'}</p>
-                    <p>아이디: {userInfo.userId || '정보 없음'}</p>
+                    <p>이름: {userInfo.name || ''}</p>
+                    <p>아이디: {userInfo.userId || ''}</p>
                 </div>
             </div>
 
@@ -54,4 +60,4 @@ function SignUpComplete({ userId = '' }) {
     );
 }
 
-export default SignUpComplete;
+export default MemberSignUpComplete;

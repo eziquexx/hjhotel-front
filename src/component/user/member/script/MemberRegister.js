@@ -179,9 +179,13 @@ const MemberRegister = () => {
                 />
             </div>
 
-            <ButtonEx id="registerSubmit" type="submit">
+            <button
+                id="registerSubmit"
+                type="submit"
+                className="custom-button"
+            >
                 가입 완료
-            </ButtonEx>
+            </button>
         </form>
     );
 };
