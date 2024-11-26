@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberTermsPage.css';
+import { useNavigate } from 'react-router-dom';
 
 function MemberTermsPage() {
     // 24.11.12 성준[상태 관리] : 각 약관 동의 상태를 저장하는 state
@@ -36,6 +37,7 @@ function MemberTermsPage() {
 
     // 24.11.12 성준[검증] : 모든 필수 약관 동의 여부 확인
     const isAllChecked = terms.service && terms.privacy;
+    const navigate = useNavigate();
 
     return (
         <div className="terms_page">
@@ -92,8 +94,15 @@ function MemberTermsPage() {
 
             <ButtonEx
                 id="terms_agree_button"
-                action={() => alert("약관 동의가 완료되었습니다.")}
-                disabled={!isAllChecked} // 필수 약관에 모두 동의해야 버튼 활성화
+                action={() => {
+                    if (isAllChecked) {
+                        alert("약관 동의가 완료되었습니다.");
+                        navigate("/register"); // 회원가입 페이지로 이동
+                    } else {
+                        alert("필수 약관에 모두 동의해야 합니다.");
+                    }
+                }}
+                disabled={!isAllChecked} // 약관 미동의 시 버튼 비활성화
             >
                 다음
             </ButtonEx>

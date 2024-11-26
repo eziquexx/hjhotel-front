@@ -3,11 +3,12 @@ import { useLocation } from 'react-router-dom';
 import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberSignUpComplete.css';
 import headImage from '../../../../assets/images/head.png';
+import { useNavigate } from 'react-router-dom';
 
 function MemberSignUpComplete() {
     const location = useLocation(); // 현재 URL 정보를 가져옴
     const [userInfo, setUserInfo] = useState({ name: '', userId: '' });
-
+    const navigate = useNavigate();
     // URL에서 userId를 추출
     const searchParams = new URLSearchParams(location.search);
     const userId = searchParams.get('userId'); // ?userId=값에서 값 가져오기
@@ -45,7 +46,7 @@ function MemberSignUpComplete() {
             </div>
 
             <div className="rewards-card">
-                <img src={headImage} alt="리워즈 카드" />
+                <img src={headImage} alt="리워즈 카드"/>
                 <div className="user-info">
                     <p>이름: {userInfo.name || ''}</p>
                     <p>아이디: {userInfo.userId || ''}</p>
@@ -54,7 +55,12 @@ function MemberSignUpComplete() {
 
             <p className="special-offer">잘바즈 회원만의 특별한 혜택을 누려보세요</p>
             <div className="buttons">
-                <ButtonEx id="home-button" action={() => alert("홈으로 이동")}>홈으로 이동</ButtonEx>
+                <ButtonEx
+                    id="home-button"
+                    action={() => navigate("/")} //메인페이지이동
+                >
+                    홈으로 이동
+                </ButtonEx>
             </div>
         </div>
     );

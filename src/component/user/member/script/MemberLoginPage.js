@@ -98,7 +98,7 @@ function MemberLoginPage() {
                     {' '}
                     /{' '}
                     <button
-                        onClick={() => navigate('/register')}
+                        onClick={() => navigate('/terms')}
                         className="btn-link"
                     >
                         회원가입

@@ -37,7 +37,7 @@ function SignUpPage() {
                     height: '100px', // 이미지 크기에 맞게 조정
                     border: 'none',  // 기본 버튼 스타일 제거
                 }}
-            >ㅋㅌㅊㅋㅌㅊ
+            >ooo00oooo00oo
             </ButtonEx>
 
         </div>
