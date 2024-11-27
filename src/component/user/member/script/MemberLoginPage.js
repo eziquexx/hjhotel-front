@@ -1,17 +1,15 @@
-
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
-import { setToken, clearToken } from '../../../../redux/slices/authSlice'; // Redux 액션
-import { useNavigate } from 'react-router-dom';
+import useAuthStore from '../../../../../src/state/authStore';
 import '../css/MemberLoginPage.css';
 
 function MemberLoginPage() {
     const [formData, setFormData] = useState({ userId: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const { setToken } = useAuthStore(); // Zustand 스토어의 상태와 메서드 가져오기
 
     // 입력값 변경 처리
     const handleChange = (e) => {
@@ -37,12 +35,15 @@ function MemberLoginPage() {
 
             const data = await response.json();
 
-            const decodedToken = jwtDecode(data.token); // JWT 디코딩
-            const expiryTime = decodedToken.exp * 1000; // 만료 시간
+            // JWT 디코딩
+            const decodedToken = jwtDecode(data.token);
+            const expiryTime = decodedToken.exp * 1000; // 만료 시간 (밀리초)
 
-            dispatch(setToken({ token: data.token, expiry: expiryTime })); //  토큰 Redux에 저장
+            // Zustand에 토큰 저장
+            setToken(data.token, expiryTime);
+
             alert('로그인 성공!');
-            navigate('/'); // 대시보드로 이동
+            navigate('/'); // 홈 페이지로 이동
         } catch (error) {
             setErrorMessage(error.message || '로그인 요청 중 오류가 발생했습니다.');
         }
